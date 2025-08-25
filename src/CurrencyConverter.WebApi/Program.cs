@@ -1,11 +1,24 @@
-var builder = WebApplication.CreateBuilder(args);
+using CurrencyConverter.WebApi.Services;
 
-builder.Services.AddControllers();
+namespace CurrencyConverter.WebApi;
 
-var app = builder.Build();
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
 
-app.UseAuthorization();
+        builder.Services.AddSingleton<IExchangeRatesService, ExchangeRatesService>();
+        builder.Services.AddSingleton<IHttpClientService, HttpClientService>();
+        builder.Services.AddControllers();
+        builder.Services.AddHttpClient();
 
-app.MapControllers();
+        var app = builder.Build();
 
-app.Run();
+        app.UseAuthorization();
+
+        app.MapControllers();
+
+        app.Run();
+    }
+}

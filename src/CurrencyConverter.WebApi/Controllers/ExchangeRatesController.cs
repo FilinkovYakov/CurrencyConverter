@@ -1,27 +1,37 @@
+using CurrencyConverter.WebApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Calculator.WebAppCore.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
 public class ExchangeRatesController : Controller
 {
-    [HttpGet(Name = "latest")]
-    public async Task<Dictionary<string, decimal>> GetLatestExchangeRatesAsync(string currency)
+    readonly IExchangeRatesService _exchangeRatesService;
+
+    public ExchangeRatesController(IExchangeRatesService exchangeRatesService)
     {
-        return default;
+        _exchangeRatesService = exchangeRatesService;
     }
 
-    [HttpGet(Name = "historical")]
+    [HttpGet]
+    [Route("api/[controller]/latest")]
+    public async Task<Dictionary<string, decimal>> GetLatestExchangeRatesAsync(string currency)
+    {
+        return await _exchangeRatesService.GetLatestExchangeRatesAsync(currency);
+    }
+
+    [HttpGet]
+    [Route("api/[controller]/historical")]
     public async Task<Dictionary<DateOnly, Dictionary<string, decimal>>> GetHistoricalExchangeRatesAsync(
         string currency, DateOnly startDate, DateOnly endDate)
     {
-        return default;
+        return await _exchangeRatesService.GetHistoricalExchangeRatesAsync(currency, startDate, endDate);
     }
 
-    [HttpGet(Name = "convert")]
+    [HttpGet]
+    [Route("api/[controller]/convert")]
     public async Task<decimal> ConvertAsync(decimal amount, string currentCurrency, string targetCurrency)
     {
-        return default;
+        return await _exchangeRatesService.GetLatestTargetExchangeRateAsync(currentCurrency, targetCurrency) * amount;
     }
 }
