@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36401.2 d17.14
+VisualStudioVersion = 17.14.36401.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConverter.WebApi", "CurrencyConverter.WebApi\CurrencyConverter.WebApi.csproj", "{E7D90007-F85D-4BF2-96F6-C455811F529C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConverter.WebApi.Tests", "CurrencyConverter.WebApi.Tests\CurrencyConverter.WebApi.Tests.csproj", "{59281CC1-731F-4E15-8DEB-EF4B9FAF5BFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E7D90007-F85D-4BF2-96F6-C455811F529C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7D90007-F85D-4BF2-96F6-C455811F529C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7D90007-F85D-4BF2-96F6-C455811F529C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59281CC1-731F-4E15-8DEB-EF4B9FAF5BFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59281CC1-731F-4E15-8DEB-EF4B9FAF5BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59281CC1-731F-4E15-8DEB-EF4B9FAF5BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59281CC1-731F-4E15-8DEB-EF4B9FAF5BFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
